@@ -1,0 +1,111 @@
+main: com.massivecraft.mcore.MCore
+name: mcore
+version: 7.1.0
+website: http://massivecraft.com/mcore
+authors: [Cayorion]
+description: §eMCore stands for MassiveCraft Core and is a plugin that contains libraries and features that other plugins make use of. §aCayorion §efrom the minecraft server §aMassiveCraft §eis the lead programmer. Feel free to visit us at §bhttp://massivecraft.com
+load: startup
+permissions:
+# -------------------------------------------- #
+# THE REAL NODES
+# -------------------------------------------- #
+# cmd
+  mcore.basecommand: {description: use the MCore base command, default: false}
+  mcore.id: {description: see the server id, default: false}
+  mcore.version: {description: diplay plugin version, default: false}
+  mcore.hearsound: {description: hear a sound, default: false}
+  mcore.mstore: {description: use the mstore command, default: false}
+  mcore.mstore.stats: {description: show mstore statistics, default: false}
+  mcore.mstore.listcolls: {description: list collections in a database, default: false}
+  mcore.mstore.copydb: {description: copy database content, default: false}
+  mcore.usys: {description: use the usys command, default: false}
+  mcore.usys.multiverse: {description: manage multiverses, default: false}
+  mcore.usys.multiverse.list: {description: list multiverses, default: false}
+  mcore.usys.multiverse.show: {description: show multiverse, default: false}
+  mcore.usys.multiverse.new: {description: create new multiverse, default: false}
+  mcore.usys.multiverse.del: {description: delete multiverse, default: false}
+  mcore.usys.universe: {description: manage universes, default: false}
+  mcore.usys.universe.new: {description: create new universe in multiverse, default: false}
+  mcore.usys.universe.del: {description: delete universe in multiverse, default: false}
+  mcore.usys.universe.clear: {description: clear universe in multiverse, default: false}
+  mcore.usys.world: {description: set a worlds universe in a multiverse, default: false}
+  mcore.usys.aspect: {description: manage aspects, default: false}
+  mcore.usys.aspect.list: {description: list aspects, default: false}
+  mcore.usys.aspect.show: {description: show aspect, default: false}
+  mcore.usys.aspect.use: {description: set multiverse for aspect, default: false}
+# misc
+  mcore.notpdelay: {description: teleport without delay, default: false}
+  mcore.variablebook: {description: replace ***book*** with content of book in your hand, default: false}
+# -------------------------------------------- #
+# STAR NOTATION
+# -------------------------------------------- #
+  mcore.*:
+    default: false
+    children:
+      mcore.basecommand: true
+      mcore.id: true
+      mcore.version: true
+      mcore.hearsound: true
+      mcore.mstore: true
+      mcore.mstore.stats: true
+      mcore.mstore.listcolls: true
+      mcore.mstore.copydb: true
+      mcore.usys: true
+      mcore.usys.multiverse: true
+      mcore.usys.multiverse.list: true
+      mcore.usys.multiverse.show: true
+      mcore.usys.multiverse.new: true
+      mcore.usys.multiverse.del: true
+      mcore.usys.universe: true
+      mcore.usys.universe.new: true
+      mcore.usys.universe.del: true
+      mcore.usys.universe.clear: true
+      mcore.usys.world: true
+      mcore.usys.aspect: true
+      mcore.usys.aspect.list: true
+      mcore.usys.aspect.show: true
+      mcore.usys.aspect.use: true
+      mcore.notpdelay: true
+      mcore.variablebook: true
+# -------------------------------------------- #
+# KITS
+# -------------------------------------------- #
+  mcore.kit.operator:
+    default: op
+    children:
+      mcore.*: true
+  mcore.kit.rank3:
+    default: false
+    children:
+      mcore.kit.rank2: true
+  mcore.kit.rank2:
+    default: false
+    children:
+      mcore.kit.rank1: true
+  mcore.kit.rank1:
+    default: false
+    children:
+      mcore.kit.rank0: true
+      mcore.id: true
+      mcore.mstore: true
+      mcore.mstore.stats: true
+      mcore.mstore.listcolls: true
+      mcore.usys: true
+      mcore.usys.multiverse: true
+      mcore.usys.multiverse.list: true
+      mcore.usys.multiverse.show: true
+      mcore.usys.aspect: true
+      mcore.usys.aspect.list: true
+      mcore.usys.aspect.show: true
+      mcore.notpdelay: true
+      mcore.variablebook: true
+  mcore.kit.rank0:
+    default: false
+    children:
+      mcore.basecommand: true
+      mcore.hearsound: true
+      mcore.version: true
+  mcore.kit.default:
+    default: true
+    children:
+      mcore.kit.rank0: true
