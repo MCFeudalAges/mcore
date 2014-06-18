@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.logging.Level;
 
 import org.bukkit.plugin.Plugin;
 
@@ -259,6 +260,8 @@ public class Coll<E> implements CollInterface<E>
 		}
 		catch (Exception e)
 		{
+			this.getPlugin().getLogger().log(Level.SEVERE, "Failed to create a new instance of class '" + this.entityClass.getCanonicalName());
+			e.printStackTrace();
 			return null;
 		}
 	}
